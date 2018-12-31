@@ -54,6 +54,7 @@ final_df$activity <- activity_group
 # Creating a new dataset with the average of each variable for each activity and subject
 data <- melt(final_df,(id.vars=c("subject","activity")))
 to_write <- dcast(data, subject + activity ~ variable, mean)
-names(to_write)[-c(1:2)] <- paste("[mean of]" , names(to_write)[-c(1:2)] )
-write.table(two_write, "tidy_data.txt", sep = ",")
+names(to_write)[-c(1:2)] <- paste("[average of]" , names(to_write)[-c(1:2)] )
+write.table(to_write, "tidy_data.txt", sep = ",")
+
 
